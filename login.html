@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="form" method="post" id="signUp" action="login.php" >
+        <img src="Images/nirmalalogowithname.png" class="logo">
+        <p class="title">Login </p>
+        <p class="message">Signup now to access your books. </p>
+        <select class="category">
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+        </select>
+        
+        <label>
+            <input required="" placeholder="" type="text" id="lid" class="input" name="Lid">
+            <span>Library Id no.</span>
+            
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" type="password" id="password" class="input" name="password">
+            <span>Password</span>
+            
+        </label>
+        <p class="recover">
+            <a href="#">Forget Password?</a>
+        </p>
+        <input type="submit" class="submit"  name="signIn">
+        <div class="foot">
+        <p class="signUp">Create a new account!</p>
+        <button onclick="goToRegistrationPage()">SignUp</button>
+        </div>
+    </form>
+    <script>
+        function goToRegistrationPage() {
+            window.location.href = 'registration.html';
+        }
+    </script>
+</body>
+</html>
