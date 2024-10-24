@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Book</title>
+    <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f4f6;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container.dark-mode {
+            background-color: #1f2937;
+            border-color: #374151;
+            color: #ffffff;
+        }
+        .container.dark-mode input,
+        .container.dark-mode label {
+            color: #ffffff;
+            border-color: #4b5563;
+            background-color: #374151;
+        }
+
+        .container .logo{
+            height: 60px;
+            margin-left: 100px;
+        }
+        .container h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+        .container.dark-mode h1 {
+            color: #ffffff;
+        }
+        .container label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1f2937;
+            display: block;
+        }
+        .container input,
+        .container select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        .container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <img src="Images/nirmalalogowithname.png" class="logo">
+        <h1>Add a New Book</h1>
+        <form method="post" action="addBook.php" onsubmit="handleSubmit(event)" id="bookForm">
+            <div>
+                <label for="ISBN">ISBN Number</label>
+                <input type="number" id="isbn" placeholder="Enter ISBN Number" name="isbn" required>
+            </div>
+            <div>
+                <label for="title">Book Title</label>
+                <input type="text" id="title" placeholder="Enter book title" name="title" required>
+            </div>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" id="author" placeholder="Enter author's name" name="author" required>
+            </div>
+            
+            <div>
+                <label for="bookLocation">Book Location</label>
+                <select id="bookLocation" name="bookLocation" required>
+                  <option value="" disabled selected>Book Location</option>
+                  <option value="shelf-1">Shelf 1</option>
+                  <option value="shelf-2">Shelf 2</option>
+                  <option value="shelf-3">Shelf 3</option>
+                  <option value="shelf-4">Shelf 4</option>
+                  <option value="shelf-5">Shelf 5</option>
+                </select>
+            </div>
+            <div>
+                <label for="price">Availabilty</label>
+                <input type="number" id="availbilty" placeholder="Enter Availabilty of the Book" name="availbilty" required>
+            </div>
+            <div>
+                <label for="price">Quantity</label>
+                <input type="number" id="quantity" placeholder="Enter Quantity of the Book" name="quantity" required>
+            </div>
+            <div>
+                <label for="price">Price</label>
+                <input type="number" id="price" placeholder="Enter Price of the Book" name="price" required>
+            </div>
+            <button type="submit" >Add Book</button>
+        </form>
+    </div>
+
+
+
+
+   
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

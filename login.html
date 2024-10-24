@@ -5,35 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            var lid = document.getElementById("lid").value;
+            var password = document.getElementById("password").value;
+            if (lid == "" || password == "") {
+                alert("Library ID and Password must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
-    <form class="form" method="post" id="signUp" action="login.php" >
+    <form class="form" method="post" id="signUp" action="login.php" onsubmit="return validateForm()">
         <img src="Images/nirmalalogowithname.png" class="logo">
-        <p class="title">Login </p>
-        <p class="message">Signup now to access your books. </p>
-        <select class="category">
-            <option value="Student">Student</option>
-            <option value="Teacher">Teacher</option>
-        </select>
+        <p class="title">Login</p>
+        <p class="message">Signup now to access your books.</p>
         
         <label>
             <input required="" placeholder="" type="text" id="lid" class="input" name="Lid">
             <span>Library Id no.</span>
-            
-        </label> 
-            
+        </label>
+        
         <label>
             <input required="" placeholder="" type="password" id="password" class="input" name="password">
             <span>Password</span>
-            
         </label>
+        
         <p class="recover">
             <a href="#">Forget Password?</a>
         </p>
-        <input type="submit" class="submit"  name="signIn">
+        
+        <input type="submit" class="submit" name="signIn">
+        
         <div class="foot">
-        <p class="signUp">Create a new account!</p>
-        <button onclick="goToRegistrationPage()">SignUp</button>
+            <p class="signUp">Create a new account!</p>
+            <button type="button" onclick="goToRegistrationPage()">SignUp</button>
         </div>
     </form>
     <script>

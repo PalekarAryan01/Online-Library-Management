@@ -5,9 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var fName = document.getElementById("fName").value;
+            var lName = document.getElementById("lName").value;
+            var lid = document.getElementById("lid").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var role = document.getElementById("role").value;
+            var isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("fNameError").innerHTML = "";
+            document.getElementById("lNameError").innerHTML = "";
+            document.getElementById("lidError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("confirmPasswordError").innerHTML = "";
+            document.getElementById("roleError").innerHTML = "";
+
+            if (fName == "") {
+                document.getElementById("fNameError").innerHTML = "Firstname is required.";
+                isValid = false;
+            }
+            if (lName == "") {
+                document.getElementById("lNameError").innerHTML = "Lastname is required.";
+                isValid = false;
+            }
+            if (lid == "") {
+                document.getElementById("lidError").innerHTML = "Library ID is required.";
+                isValid = false;
+            }
+            if (password == "") {
+                document.getElementById("passwordError").innerHTML = "Password is required.";
+                isValid = false;
+            }
+            if (confirmPassword == "") {
+                document.getElementById("confirmPasswordError").innerHTML = "Confirm password is required.";
+                isValid = false;
+            }
+            if (role == "") {
+                document.getElementById("roleError").innerHTML = "Role is required.";
+                isValid = false;
+            }
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
 </head>
 <body>
-    <form class="form" method="post" id="signUp" action="registration.php">
+    <form class="form" method="post" id="signUp" action="registration.php" onsubmit="return validateForm()">
         <img src="Images/nirmalalogowithname.png" class="logo">
         <p class="title">Register</p>
         <p class="message">Signup now to access your books.</p>
@@ -15,40 +71,56 @@
             <label>
                 <input required="" placeholder="" type="text" id="fName" class="input" name="fname"/>
                 <span>Firstname</span>
+                <small id="fNameError" class="error-message"></small>
             </label>
             <label>
                 <input required="" placeholder="" type="text" id="lName" class="input" name="lname"/>
                 <span>Lastname</span>
+                <small id="lNameError" class="error-message"></small>
             </label>
         </div>
-        <select class="category" name="category">
-            <option value="Student">Student</option>
-            <option value="Teacher">Teacher</option>
-        </select>
-
+        <div>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="Student">Student</option>
+            </select>
+            <small id="roleError" class="error-message"></small>
+        </div>
+        <div></div>
+            <select id="Course" name="Course" required>
+                <option value="" disabled selected>Select Course</option>
+                <option value="CS">Computer Science</option>
+                <option value="IT">Information Technology</option>
+                <option value="BMM">Bachlor Of Mass Media</option>
+                <option value="BCOM">Bachlor Of Commerce</option>
+            </select>
+            <small id="roleError" class="error-message"></small>
+        </div>
         <label>
             <input required="" placeholder="" type="text" id="lid" class="input" name="Lid"/>
             <span>Library Id no.</span>
+            <small id="lidError" class="error-message"></small>
         </label>
-
         <label>
             <input required="" placeholder="" type="password" id="password" class="input" name="password"/>
             <span>Password</span>
+            <small id="passwordError" class="error-message"></small>
         </label>
         <label>
             <input required="" placeholder="" type="password" id="confirmPassword" class="input" name="confirmPassword">
             <span>Confirm password</span>
+            <small id="confirmPasswordError" class="error-message"></small>
         </label>
-        <input type="submit" class="submit"  name="signUp">
+        <input type="submit" class="submit" name="signUp">
         <div class="foot">
             <p class="signIn">Already have an account?</p>
-            <button onclick="goToLoginPage()">SignIn</button>
+            <button type="button" onclick="goToLoginPage()">SignIn</button>
         </div>
     </form>
     <script>
-    function goToLoginPage() {
+        function goToLoginPage() {
             window.location.href = 'login.html';
         }
-        </script>
+    </script>
 </body>
 </html>
